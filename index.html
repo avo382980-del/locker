@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Блокировка</title>
+    <style>
+        body {
+            background: black;
+            color: red;
+            text-align: center;
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            background: #111;
+            border: 2px solid red;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 300px;
+        }
+        input, button {
+            font-size: 24px;
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+        button {
+            background: red;
+            color: black;
+            border: none;
+        }
+    </style>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () { history.go(1); };
+        function check() {
+            if (document.getElementById('pass').value === '9999') {
+                document.body.innerHTML = '<h1>РАЗБЛОКИРОВАНО</h1>';
+            } else {
+                alert('Неверный пароль');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <h2>ТЕЛЕФОН ЗАБЛОКИРОВАН</h2>
+        <input type="password" id="pass" placeholder="Пароль 9999">
+        <button onclick="check()">РАЗБЛОКИРОВАТЬ</button>
+    </div>
+</body>
+</html>
